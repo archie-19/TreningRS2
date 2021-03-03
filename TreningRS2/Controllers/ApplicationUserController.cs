@@ -13,7 +13,7 @@ using TreningRS2.Services.Interface;
 
 namespace TreningRS2.WebAPI.Controllers
 {
-   //[Authorize]
+   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ApplicationUserController : ControllerBase
@@ -34,21 +34,22 @@ namespace TreningRS2.WebAPI.Controllers
             return _service.Get(search) ;
         }
         [HttpGet("{id}")]
-        public ActionResult <Models.ApplicationUser.ApplicationUser> GetById(int id)
+        public ActionResult <Models.ApplicationUser.ApplicationUser> GetById([FromRoute] int id)
         {
 
             return _service.GetById(id);
         }
         [HttpPost]
 
-        public Models.ApplicationUser.ApplicationUser Insert(Models.ApplicationUser.ApplicationUserInsert insert)
+        public Models.ApplicationUser.ApplicationUser Insert([FromBody] Models.ApplicationUser.ApplicationUserInsert insert)
         {
             return _service.Insert(insert);
         }
         [HttpPut("{id}")]
-        public Models.ApplicationUser.ApplicationUser Update(int id,Models.ApplicationUser.ApplicationUserInsert update)
+        public Models.ApplicationUser.ApplicationUser Update([FromRoute] int id,[FromBody] Models.ApplicationUser.ApplicationUserInsert update)
         {
-            return _service.Update(id,update);
+            
+            return _service.Update(id, update);
         }
     }
 

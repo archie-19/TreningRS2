@@ -31,7 +31,7 @@ namespace TreningRS2.WinUI.ApplicationUser
                 Ime = txtPretraga.Text
             };
 
-            var result =await _apiService.Get < List<Models.ApplicationUser.ApplicationUser>>(search);
+            var result =await _apiService.Get<List<Models.ApplicationUser.ApplicationUser>>(search);
            // dgvKorisnici.AutoGenerateColumns = false;//da ne generise samo sve nego samo sto je tamo stavljeno u grid
             dgvKorisnici.DataSource = result;
         }

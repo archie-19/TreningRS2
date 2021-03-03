@@ -25,7 +25,7 @@ namespace TreningRS2
             {
                 var service = scope.ServiceProvider.GetRequiredService<TrainingContext>();
                 SetupService.MigrateDatabase(service);
-                //SetupService.SeedDatabase(service); //<- Zakomentarisano jer se puni preko sql scripte. NE KORISTIT!
+                SetupService.SeedDatabase(service); //<- Zakomentarisano jer se puni preko sql scripte. NE KORISTIT!
             }
 
             host.Run();

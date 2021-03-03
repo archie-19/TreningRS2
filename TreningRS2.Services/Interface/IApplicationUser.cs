@@ -14,7 +14,7 @@ namespace TreningRS2.Services.Interface
 
         Models.ApplicationUser.ApplicationUser Insert(ApplicationUserInsert insert);
         Models.ApplicationUser.ApplicationUser Update(int id,ApplicationUserInsert update);
-        //Task<Models.ApplicationUser.ApplicationUser> Authenticiraj(string username, string pass);
+        Task<Models.ApplicationUser.ApplicationUserModel> Authenticiraj(string username, string pass);
 
         //Models.ApplicationUser.ApplicationUser Authenticiraj(string username, string pass);
     }

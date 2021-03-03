@@ -42,20 +42,20 @@ namespace TreningRS2.WinUI
 
             var url = $"{ Properties.Settings.Default.APIUrl}/{_route}";
 
-            //eturn await url.WithBasicAuth(Username, Password).PostJsonAsync(insert).ReceiveJson<T>();
-            return await url.PostJsonAsync(insert).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PostJsonAsync(insert).ReceiveJson<T>();
+            //return await url.PostJsonAsync(insert).ReceiveJson<T>();
 
 
         }
         //vratit na int id
-        public async Task<T> Update<T>(int id,object update)
+        public async Task<T> Update<T>(object id,object update)
         {
           
 
-            var url = $"{ Properties.Settings.Default.APIUrl}/{_route}/(id)";
+            var url = $"{ Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-           // return await url.WithBasicAuth(Username, Password).PostJsonAsync(update).ReceiveJson<T>();
-            return await url.PostJsonAsync(update).ReceiveJson<T>();
+           return await url.WithBasicAuth(Username, Password).PostJsonAsync(update).ReceiveJson<T>();
+           // return await url.PutJsonAsync(update).ReceiveJson<T>();
 
 
         }

@@ -8,7 +8,6 @@ using TreningRS2.Services.Interface;
 using AutoMapper;
 using TreningRS2.Models.ApplicationUser;
 using Microsoft.EntityFrameworkCore;
-using TreningRS2.Services.Helpers;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
@@ -44,35 +43,24 @@ namespace TreningRS2.Services.Services
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
-        //public async Task<Models.ApplicationUser.ApplicationUser> Authenticiraj(string username, string pass)
-        //{
-        //    var user = _ctx.ApplicationUser.FirstOrDefault(x => x.Username == username);
-        //    if (user!=null)
-        //    {
-        //        var newHash = AuthHelper.GenerateHash(user.PasswordSalt, pass);
-        //        if(newHash==user.PasswordHash)
-        //        {
-        //            return _mapper.Map<Models.ApplicationUser.ApplicationUser>(user);
-        //        }
-        //    }
-        //    return null;
-        //} 
-        //drugo otk
-        //public Models.ApplicationUser.ApplicationUser Authenticiraj(string username, string pass)
-        //{
-        //    var user = _ctx.ApplicationUser.FirstOrDefault(x => x.Username == username);
+        public async Task<Models.ApplicationUser.ApplicationUserModel> Authenticiraj(string username, string pass)
+        {
+            var user = await _ctx.ApplicationUser.FirstOrDefaultAsync(x => x.Username == username);
+            if (user != null)
+            {
+                var newHash = GenerateHash(user.PasswordSalt, pass);
+                if (newHash == user.PasswordHash)
+                {
+                    return new ApplicationUserModel
+                    {
+                        Id = user.Id,
+                        Username = user.Username
+                    };
+                }
+            }
+            return null;
+        }
 
-        //    if (user != null)
-        //    {
-        //        var newHash = AuthHelper.GenerateHash(user.PasswordSalt, pass);
-
-        //        if (newHash == user.PasswordHash)
-        //        {
-        //            return _mapper.Map<Models.ApplicationUser.ApplicationUser>(user);
-        //        }
-        //    }
-        //    return null;
-        //}
         public Models.ApplicationUser.ApplicationUser GetById(int id)
         {
             var entity = _ctx.ApplicationUser.Include(x => x.Opcina).Where(x => x.Id == id).FirstOrDefault();
@@ -95,6 +83,7 @@ namespace TreningRS2.Services.Services
 
         public Models.ApplicationUser.ApplicationUser Update(int id, ApplicationUserInsert update)
         {
+            
             var entity = _ctx.ApplicationUser.Include(x => x.Opcina).Where(x => x.Id == id).FirstOrDefault();
 
             _mapper.Map(update, entity);
@@ -102,7 +91,6 @@ namespace TreningRS2.Services.Services
             {
                 if (update.Password != update.PasswordConfirm)
                 {
-                    // throw new UserException("Passwordi se ne slazu.");
                     throw new Exception("Passwordi se ne slazu.");
                 }
                 //TODO:update pass

@@ -287,117 +287,117 @@ namespace TreningRS2.WebAPI.Helpers
             }
            
             //seeding instance kursa
-            if (context.TreningInstanca.Count() == 0)
-            {
-                var list = new List<TreningInstanca>
-                {
-                    new TreningInstanca
-                    {
-                        BrojCasova = 10,
-                        Kapacitet = 20,
-                        PocetakDatum = DateTime.Now.AddMonths(4),
-                        TreningId = 1,
-                        PrijaveDoDatum = DateTime.Now.AddMonths(4),
-                        UposlenikId = 2
-                    },
-                    new TreningInstanca
-                    {
-                        BrojCasova = 10,
-                        PocetakDatum = DateTime.Now.AddMonths(2),
-                        TreningId = 1,
-                        PrijaveDoDatum = DateTime.Now.AddMonths(2),
-                        UposlenikId = 3,
-                        Cijena = 200
-                    },
-                    new TreningInstanca
-                    {
-                        BrojCasova = 15,
-                        Kapacitet = 2,
-                        PocetakDatum = DateTime.Now.AddMonths(4),
-                        TreningId = 2,
-                        PrijaveDoDatum = DateTime.Now.AddMonths(4),
-                        UposlenikId = 2
-                    },
-                    new TreningInstanca
-                    {
-                        BrojCasova = 10,
-                        Kapacitet = 20,
-                        PocetakDatum = DateTime.Now.AddMonths(1),
-                        TreningId = 3,
-                        PrijaveDoDatum = DateTime.Now.AddMonths(1),
-                        UposlenikId = 2
-                    },
-                    new TreningInstanca
-                    {
-                        BrojCasova = 10,
-                        PocetakDatum = DateTime.Now.AddMonths(1),
-                        TreningId = 4,
-                        PrijaveDoDatum = DateTime.Now.AddMonths(1),
-                        UposlenikId = 3
-                    }
-                };
-                foreach (var item in list)
-                {
-                    context.TreningInstanca.Add(item);
-                }
-                context.SaveChanges();
-            }
+            //if (context.TreningInstanca.Count() == 0)
+            //{
+            //    var list = new List<TreningInstanca>
+            //    {
+            //        new TreningInstanca
+            //        {
+            //            BrojCasova = 10,
+            //            Kapacitet = 20,
+            //            PocetakDatum = DateTime.Now.AddMonths(4),
+            //            TreningId = 1,
+            //            PrijaveDoDatum = DateTime.Now.AddMonths(4),
+            //            UposlenikId = 2
+            //        },
+            //        new TreningInstanca
+            //        {
+            //            BrojCasova = 10,
+            //            PocetakDatum = DateTime.Now.AddMonths(2),
+            //            TreningId = 1,
+            //            PrijaveDoDatum = DateTime.Now.AddMonths(2),
+            //            UposlenikId = 3,
+            //            Cijena = 200
+            //        },
+            //        new TreningInstanca
+            //        {
+            //            BrojCasova = 15,
+            //            Kapacitet = 2,
+            //            PocetakDatum = DateTime.Now.AddMonths(4),
+            //            TreningId = 2,
+            //            PrijaveDoDatum = DateTime.Now.AddMonths(4),
+            //            UposlenikId = 2
+            //        },
+            //        new TreningInstanca
+            //        {
+            //            BrojCasova = 10,
+            //            Kapacitet = 20,
+            //            PocetakDatum = DateTime.Now.AddMonths(1),
+            //            TreningId = 3,
+            //            PrijaveDoDatum = DateTime.Now.AddMonths(1),
+            //            UposlenikId = 2
+            //        },
+            //        new TreningInstanca
+            //        {
+            //            BrojCasova = 10,
+            //            PocetakDatum = DateTime.Now.AddMonths(1),
+            //            TreningId = 4,
+            //            PrijaveDoDatum = DateTime.Now.AddMonths(1),
+            //            UposlenikId = 3
+            //        }
+            //    };
+            //    foreach (var item in list)
+            //    {
+            //        context.TreningInstanca.Add(item);
+            //    }
+            //    context.SaveChanges();
+            //}
             //seeding klijente na kurs instance
-            if (context.PolaznikTreningInstanca.Count() == 0)
-            {
-                var treningInstanca = new TreningInstanca
-                {
-                    BrojCasova = 10,
-                    PocetakDatum = DateTime.Now.AddMonths(1),
-                    TreningId = 5,
-                    PrijaveDoDatum = DateTime.Now.AddMonths(1),
-                    UposlenikId = 3,
-                    Cijena = 300,
-                    Kapacitet = 3
-                };
-                var treningInstanca2 = new TreningInstanca
-                {
-                    BrojCasova = 10,
-                    PocetakDatum = DateTime.Now.AddMonths(1),
-                    TreningId = 3,
-                    PrijaveDoDatum = DateTime.Now.AddMonths(1),
-                    UposlenikId = 2,
-                    Cijena = 300,
-                    Kapacitet = 3
-                };
+            //if (context.PolaznikTreningInstanca.Count() == 0)
+            //{
+            //    var treningInstanca = new TreningInstanca
+            //    {
+            //        BrojCasova = 10,
+            //        PocetakDatum = DateTime.Now.AddMonths(1),
+            //        TreningId = 5,
+            //        PrijaveDoDatum = DateTime.Now.AddMonths(1),
+            //        UposlenikId = 3,
+            //        Cijena = 300,
+            //        Kapacitet = 3
+            //    };
+            //    var treningInstanca2 = new TreningInstanca
+            //    {
+            //        BrojCasova = 10,
+            //        PocetakDatum = DateTime.Now.AddMonths(1),
+            //        TreningId = 3,
+            //        PrijaveDoDatum = DateTime.Now.AddMonths(1),
+            //        UposlenikId = 2,
+            //        Cijena = 300,
+            //        Kapacitet = 3
+            //    };
 
-                var polaznikTreningInstnaca = new PolaznikTreningInstanca
-                {
-                    Active = true,
-                    KlijentId = 1,
-                    TreningInstanca = treningInstanca2,
-                    UplataIzvrsena = true
-                };
-                var polaznikTreningInstnaca2 = new PolaznikTreningInstanca
-                {
-                    Active = true,
-                    KlijentId = 2,
-                    TreningInstanca = treningInstanca2,
-                    UplataIzvrsena = true
-                };
-                var polaznikTreningInstnaca3 = new PolaznikTreningInstanca
-                {
-                    Active = true,
-                    KlijentId = 3,
-                    TreningInstanca = treningInstanca2,
-                    UplataIzvrsena = true
-                };
+            //    var polaznikTreningInstnaca = new PolaznikTreningInstanca
+            //    {
+            //        Active = true,
+            //        KlijentId = 1,
+            //        TreningInstanca = treningInstanca2,
+            //        UplataIzvrsena = true
+            //    };
+            //    var polaznikTreningInstnaca2 = new PolaznikTreningInstanca
+            //    {
+            //        Active = true,
+            //        KlijentId = 2,
+            //        TreningInstanca = treningInstanca2,
+            //        UplataIzvrsena = true
+            //    };
+            //    var polaznikTreningInstnaca3 = new PolaznikTreningInstanca
+            //    {
+            //        Active = true,
+            //        KlijentId = 3,
+            //        TreningInstanca = treningInstanca2,
+            //        UplataIzvrsena = true
+            //    };
 
 
-                context.Add(treningInstanca);
-                context.Add(polaznikTreningInstnaca);
+            //    context.Add(treningInstanca);
+            //    context.Add(polaznikTreningInstnaca);
 
-                context.Add(treningInstanca2);
-                context.Add(polaznikTreningInstnaca2);
-                context.Add(polaznikTreningInstnaca3);
+            //    context.Add(treningInstanca2);
+            //    context.Add(polaznikTreningInstnaca2);
+            //    context.Add(polaznikTreningInstnaca3);
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
         }
     }
     }

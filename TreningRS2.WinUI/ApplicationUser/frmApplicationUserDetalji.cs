@@ -63,7 +63,7 @@ namespace TreningRS2.WinUI.ApplicationUser
                 if (_id.HasValue)
                 {
                     //ovo baguje
-                    await _service.Update<Models.ApplicationUser.ApplicationUser>((int)_id, insert);
+                    await _service.Update<Models.ApplicationUser.ApplicationUser>(_id, insert);
                 }
                 else
                 {

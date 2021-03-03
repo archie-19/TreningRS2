@@ -14,4 +14,8 @@
     <ProjectReference Include="..\TreningRS2.Models\TreningRS2.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

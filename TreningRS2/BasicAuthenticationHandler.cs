@@ -32,10 +32,11 @@ namespace eCourse.WebAPI.Auth
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            if (!Request.Headers.ContainsKey("Authorization"))
+           if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");
 
-            TreningRS2.Models.ApplicationUser.ApplicationUser user = null;
+            ApplicationUserModel user = null;
+            //TreningRS2.Models.ApplicationUser.ApplicationUser user = null;
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -43,7 +44,7 @@ namespace eCourse.WebAPI.Auth
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
                 var username = credentials[0];
                 var password = credentials[1];
-                //user = _userService.Authenticiraj(username, password); otk
+                user = await _userService.Authenticiraj(username, password);
             }
             catch
             {
@@ -55,7 +56,7 @@ namespace eCourse.WebAPI.Auth
 
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.Username),
-                new Claim(ClaimTypes.Name, user.Ime),
+                //new Claim(ClaimTypes.Name, user.Ime),
             };
 
             //foreach (var role in user.KorisniciUloge)

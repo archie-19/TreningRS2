@@ -41,7 +41,7 @@ namespace TreningRS2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(x => x.Filters.Add<ErrorFilter>());
+           // services.AddMvc(x => x.Filters.Add<ErrorFilter>());
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<TrainingContext>(options =>
@@ -50,32 +50,32 @@ namespace TreningRS2
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TreningRS2 API", Version = "v1" });
 
-                //c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
-                //{
-                //    Name = "Authorization",
-                //    Type = SecuritySchemeType.Http,
-                //    Scheme = "basic",
-                //    In = ParameterLocation.Header,
-                //    Description = "Basic Authorization header using the Bearer scheme."
-                //});
+                c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    In = ParameterLocation.Header,
+                    Description = "Basic Authorization header using the Bearer scheme."
+                });
 
-                //c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                //{
-                //    {
-                //          new OpenApiSecurityScheme
-                //            {
-                //                Reference = new OpenApiReference
-                //                {
-                //                    Type = ReferenceType.SecurityScheme,
-                //                    Id = "basic"
-                //                }
-                //            },
-                //            new string[] {}
-                //    }
-                //});
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "basic"
+                                }
+                            },
+                            new string[] {}
+                    }
+                });
             });
-           // services.AddAuthentication("BasicAuthentication")
-           //.AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            services.AddAuthentication("BasicAuthentication")
+            .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
 
             services.AddScoped<IApplicationUser, ApplicationUserService>();
@@ -96,8 +96,8 @@ namespace TreningRS2
 
             app.UseRouting();
 
-           // app.UseAuthentication();
-           //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

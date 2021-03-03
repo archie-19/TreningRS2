@@ -17,8 +17,10 @@ namespace TreningRS2.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmLogin());
-            Application.Run(new frmIndex());
+            Application.Run(new frmLogin());
+            //APIService.Username = "imeime";
+            //APIService.Password = "imeime";
+           // Application.Run(new frmIndex());
 
         }
     }
