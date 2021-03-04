@@ -15,6 +15,10 @@ namespace TreningRS2.WebAPI.Mappers
                 .ForMember(x => x.Opcina, y => y.MapFrom(src => src.Opcina.Naziv));
             CreateMap<ApplicationUser, Models.ApplicationUser.ApplicationUserInsert>().ReverseMap();
             CreateMap<Opcina, Models.Općina.OpcinaModel>().ReverseMap();
+            CreateMap<Trening, Models.Trening.TreningModel>().ReverseMap();
+            CreateMap<Trening, Models.Trening.TreningModelSearch>().ReverseMap();
+
+
 
 
         }

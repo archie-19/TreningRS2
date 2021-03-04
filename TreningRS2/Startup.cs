@@ -79,6 +79,9 @@ namespace TreningRS2
 
 
             services.AddScoped<IApplicationUser, ApplicationUserService>();
+            services.AddScoped<ITrening, TreningService>();
+
+
             services.AddScoped<IService<OpcinaModel, object>, BaseService<OpcinaModel, object, Opcina>>();
             
         }

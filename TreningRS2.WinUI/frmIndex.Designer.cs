@@ -33,6 +33,9 @@
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noviKorisnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treninziToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pregledTreningaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajTreningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -43,7 +46,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.korisniciToolStripMenuItem});
+            this.korisniciToolStripMenuItem,
+            this.treninziToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
@@ -72,6 +76,29 @@
             this.noviKorisnikToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.noviKorisnikToolStripMenuItem.Text = "Novi korisnik";
             this.noviKorisnikToolStripMenuItem.Click += new System.EventHandler(this.noviKorisnikToolStripMenuItem_Click);
+            // 
+            // treninziToolStripMenuItem
+            // 
+            this.treninziToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pregledTreningaToolStripMenuItem,
+            this.dodajTreningToolStripMenuItem});
+            this.treninziToolStripMenuItem.Name = "treninziToolStripMenuItem";
+            this.treninziToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.treninziToolStripMenuItem.Text = "Treninzi";
+            // 
+            // pregledTreningaToolStripMenuItem
+            // 
+            this.pregledTreningaToolStripMenuItem.Name = "pregledTreningaToolStripMenuItem";
+            this.pregledTreningaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledTreningaToolStripMenuItem.Text = "Pregled treninga";
+            this.pregledTreningaToolStripMenuItem.Click += new System.EventHandler(this.pregledTreningaToolStripMenuItem_Click);
+            // 
+            // dodajTreningToolStripMenuItem
+            // 
+            this.dodajTreningToolStripMenuItem.Name = "dodajTreningToolStripMenuItem";
+            this.dodajTreningToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajTreningToolStripMenuItem.Text = "Dodaj trening";
+            this.dodajTreningToolStripMenuItem.Click += new System.EventHandler(this.dodajTreningToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -119,6 +146,9 @@
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem noviKorisnikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem treninziToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pregledTreningaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajTreningToolStripMenuItem;
     }
 }
 

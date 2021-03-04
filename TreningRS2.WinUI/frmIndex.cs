@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TreningRS2.WinUI.ApplicationUser;
+using TreningRS2.WinUI.Trening;
 
 namespace TreningRS2.WinUI
 {
@@ -116,6 +117,20 @@ namespace TreningRS2.WinUI
         private void noviKorisnikToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmApplicationUserDetalji frm = new frmApplicationUserDetalji();
+            frm.Show();
+        }
+
+        private void dodajTreningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTreningDetalji frm = new frmTreningDetalji();
+            frm.Show();
+        }
+
+        private void pregledTreningaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTreninzi frm = new frmTreninzi();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
     }
